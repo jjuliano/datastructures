@@ -1,0 +1,14 @@
+Python files
+  Project: https://github.com/TheAlgorithms/Python
+  Commit:  574d100b7181956e9c8384552fd078165e4cc326
+  License: MIT (LICENSE-MIT.md)
+  Copyright (c) 2016-2022 TheAlgorithms and contributors
+
+C files
+  Project: https://github.com/TheAlgorithms/C
+  Commit:  e5dad3fa8def3726ec850ca66a7f51521f8ad393
+  License: GPL-3.0 (LICENSE-GPL-3.0)
+  Copyright (C) 2016-2023 TheAlgorithms and contributors
+
+Files are unmodified copies, except the session folders and these notes.
+The programs written for the book are not in this repository.
