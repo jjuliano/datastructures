@@ -6,6 +6,7 @@ from collections.abc import Iterator
 from typing import Any
 
 
+# Easy: linked_queue.easy, node(info, link). data is info, next is link.
 class Node:
     def __init__(self, data: Any) -> None:
         self.data: Any = data
@@ -43,6 +44,7 @@ class LinkedQueue:
     """
 
     def __init__(self) -> None:
+        # Easy MAIN: head <- nil; tail <- nil. front is head, rear is tail.
         self.front: Node | None = None
         self.rear: Node | None = None
 
@@ -92,6 +94,7 @@ class LinkedQueue:
         """
         return len(self) == 0
 
+    # Easy: linked_queue.easy, procedure Enqueue(head, tail, x).
     def put(self, item: Any) -> None:
         """
         >>> queue = LinkedQueue()
@@ -104,14 +107,18 @@ class LinkedQueue:
         >>> str(queue)
         '1 <- 2 <- 3 <- 4 <- 5'
         """
+        # Easy Enqueue: call GETNODE(p); info(p) <- x; link(p) <- nil
         node = Node(item)
+        # Easy Enqueue: if head = nil then [ head <- p; tail <- p ]
         if self.is_empty():
             self.front = self.rear = node
         else:
+            # Easy Enqueue: else [ link(tail) <- p; tail <- p ]
             assert isinstance(self.rear, Node)
             self.rear.next = node
             self.rear = node
 
+    # Easy: linked_queue.easy, procedure Dequeue(head, tail, x).
     def get(self) -> Any:
         """
         >>> queue = LinkedQueue()
@@ -127,13 +134,18 @@ class LinkedQueue:
         >>> len(queue)
         0
         """
+        # Not in Easy: Dequeue trusts its caller not to empty an empty line.
         if self.is_empty():
             raise IndexError("dequeue from empty queue")
         assert isinstance(self.front, Node)
+        # Easy Dequeue: old <- head
         node = self.front
+        # Easy Dequeue: head <- link(head)
         self.front = self.front.next
+        # Easy Dequeue: if head = nil then tail <- nil
         if self.front is None:
             self.rear = None
+        # Easy Dequeue: x <- info(old). The collector does RETNODE(old).
         return node.data
 
     def clear(self) -> None:

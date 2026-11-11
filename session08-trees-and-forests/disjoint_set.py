@@ -6,6 +6,8 @@ Reference: https://en.wikipedia.org/wiki/Disjoint-set_data_structure
 from dataclasses import dataclass
 
 
+# Easy: union_find.easy, array parent(1:3). Each Node carries its
+# own parent cell. rank belongs to the weighting rule for union.
 @dataclass
 class Node:
     data: int
@@ -13,6 +15,7 @@ class Node:
     parent: Node | None = None
 
 
+# Easy MAIN: parent(1) <- 1, and the same for 2 and 3.
 def make_set(x: Node) -> None:
     """
     Make x as a set.
@@ -29,9 +32,11 @@ def make_set(x: Node) -> None:
     # rank is the distance from x to its' parent
     # root's rank is 0
     x.rank = 0
+    # Easy MAIN: parent(x) <- x
     x.parent = x
 
 
+# Easy: union_find.easy, procedure Unite(parent, a, b).
 def union_set(x: Node, y: Node) -> None:
     """
     Union of two sets.
@@ -54,10 +59,14 @@ def union_set(x: Node, y: Node) -> None:
     >>> find_set(node2) == find_set(node3)
     True
     """
+    # Easy Unite: ra <- Find(parent, a); rb <- Find(parent, b)
     x, y = find_set(x), find_set(y)
+    # Easy Unite: if ra != rb then ..., so equal roots do nothing
     if x == y:
         return
 
+    # Easy Unite: parent(rb) <- ra. Python makes the root with the
+    # larger rank the parent, the weighting rule Easy leaves out.
     elif x.rank > y.rank:
         y.parent = x
     else:
@@ -66,6 +75,7 @@ def union_set(x: Node, y: Node) -> None:
             y.rank += 1
 
 
+# Easy: union_find.easy, procedure Find(parent, x).
 def find_set(x: Node) -> Node:
     """
     Return the parent of x
@@ -88,8 +98,11 @@ def find_set(x: Node) -> Node:
     >>> find_set(node1) == find_set(node3)
     True
     """
+    # Easy Find: while parent(x) != x do x <- parent(x)
+    # Python recurses, and the assignment flattens the path.
     if x != x.parent:
         x.parent = find_set(x.parent)
+    # Easy Find: return(x), the root
     return x.parent
 
 

@@ -167,23 +167,30 @@ class BinarySearchTree:
         """
         return not self.root
 
+    # Easy: bst.easy, procedure Insert(root, x). Easy recurses down the
+    # links. This version walks down in a loop. easy/bst.py is the twin.
     def __insert(self, value) -> None:
         """
         Insert a new node in Binary Search Tree with value label
         """
+        # Easy Insert: call GETNODE(p); info(p) <- x; left and right nil
         new_node = Node(value)  # create a new Node
+        # Easy Insert: if root = nil then root <- p
         if self.empty():  # if Tree is empty
             self.root = new_node  # set its root
         else:  # Tree is not empty
             parent_node = self.root  # from root
             if parent_node is None:
                 return
+            # Easy Insert: each pass is one recursive call
             while True:  # While we don't get to a leaf
+                # Easy Insert: if x < info(root) then Insert(left(root), x)
                 if value < parent_node.value:  # We go left
                     if parent_node.left is None:
                         parent_node.left = new_node  # We insert the new node in a leaf
                         break
                     parent_node = parent_node.left
+                # Easy Insert: else call Insert(right(root), x)
                 elif parent_node.right is None:
                     parent_node.right = new_node
                     break

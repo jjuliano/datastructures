@@ -39,7 +39,12 @@ vertex.
 import heapq
 
 
-def dijkstra(graph: dict[str, list[tuple[str, int]]], start: str, end: str) -> int:
+# Easy: paths.easy, procedure Shortest(w, dist). Easy scans for the
+# closest unused town. This version keeps a heap of (cost, node),
+# and heappop hands over that town.
+def dijkstra(
+    graph: dict[str, list[tuple[str, int]]], start: str, end: str
+) -> int:
     """Return the cost of the shortest path between vertices start and end.
 
     >>> dijkstra(G, "E", "C")
@@ -49,27 +54,39 @@ def dijkstra(graph: dict[str, list[tuple[str, int]]], start: str, end: str) -> i
     >>> dijkstra(G3, "E", "F")
     3
     """
+    # Easy MAIN: dist(1) <- 0, and every other dist starts at 999
     heap: list[tuple[int, str]] = [(0, start)]  # (cost, node)
+    # Easy Shortest: used(i) <- false for every town
     visited: set[str] = set()
-    costs: dict[str, int] = {start: 0}  # Store minimum costs to reach each node
+    # Store minimum costs to reach each node
+    costs: dict[str, int] = {start: 0}
 
+    # Easy Shortest: while round <= 3 do
     while heap:
+        # Easy Shortest: bi is the unused town with the least dist(i)
         cost, u = heapq.heappop(heap)
+        # Not in Easy: a town can sit in the heap twice. Skip the old copy.
         if u in visited:
             continue
+        # Easy Shortest: used(bi) <- true
         visited.add(u)
+        # Not in Easy: stop once the target town is done
         if u == end:
             return cost
 
+        # Easy Shortest: while j <= 3 do, for each w(bi, j) != 0
         for v, c in graph[u]:
             if v in visited:
                 continue
+            # Easy Shortest: dist(bi) + w(bi, j)
             next_cost = cost + c
             # Only push to heap if a cheaper path is found
+            # Easy Shortest: if that sum < dist(j) then dist(j) <- the sum
             if next_cost < costs.get(v, float("inf")):
                 costs[v] = next_cost
                 heapq.heappush(heap, (next_cost, v))
 
+    # Not in Easy: -1 when end cannot be reached
     return -1
 
 

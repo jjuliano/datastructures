@@ -21,6 +21,8 @@ class Comparable(Protocol):
     def __lt__(self, other: Any, /) -> bool: ...
 
 
+# Easy: insertion.easy, procedure Sort(a, n). Python counts from 0,
+# so Easy's i <- 2 is index 1, and j > 1 is insert_index > 0.
 def insertion_sort[T: Comparable](collection: MutableSequence[T]) -> MutableSequence[T]:
     """A pure Python implementation of the insertion sort algorithm
 
@@ -79,11 +81,17 @@ def insertion_sort[T: Comparable](collection: MutableSequence[T]) -> MutableSequ
     True
     """
 
+    # Easy Sort: i <- 2; while i <= n do ... i <- i + 1
+    # insert_index plays both i and j.
     for insert_index in range(1, len(collection)):
+        # Easy Sort: held <- a(i); j <- i
         insert_value = collection[insert_index]
+        # Easy Sort: while j > 1 and a(j - 1) > held do
         while insert_index > 0 and insert_value < collection[insert_index - 1]:
+            # Easy Sort: a(j) <- a(j - 1); j <- j - 1
             collection[insert_index] = collection[insert_index - 1]
             insert_index -= 1
+        # Easy Sort: a(j) <- held
         collection[insert_index] = insert_value
     return collection
 

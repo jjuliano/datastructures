@@ -18,3 +18,7 @@ Easy procedures in `easy/` are original, MIT, copyright Joel Bryan Juliano. See 
 - `easy/euclid.easy` — gcd(48, 18) is 6, and gcd(608, 133) is 19
 - `easy/factorial.easy` — 5! is 120
 - `easy/horner.easy` — 3x^2 + 2x + 1 at x = 10 is 321
+
+Python twins in `easy/` are original, MIT, copyright Joel Bryan Juliano, under the same [LICENSE-EASY.md](../LICENSE-EASY.md). No public Python file matched the Easy program, so each twin follows it line by line, with comments that quote the Easy lines.
+
+- `easy/euclid.py` — Python twin of `easy/euclid.easy`: the same remainder loop, prints 6 and 19

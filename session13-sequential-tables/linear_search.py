@@ -9,6 +9,8 @@ python3 linear_search.py
 """
 
 
+# Easy: search.easy (session 13), procedure Linear(a, n, key).
+# Python counts from 0 and returns -1 where Easy returns 0.
 def linear_search(sequence: list, target: int) -> int:
     """A pure Python implementation of a linear search algorithm
 
@@ -27,9 +29,12 @@ def linear_search(sequence: list, target: int) -> int:
     >>> linear_search([0, 5, 7, 10, 15], 6)
     -1
     """
+    # Easy Linear: i <- 1; while i <= n do ... i <- i + 1
     for index, item in enumerate(sequence):
+        # Easy Linear: if a(i) = key then return(i)
         if item == target:
             return index
+    # Easy Linear: return(0)
     return -1
 
 

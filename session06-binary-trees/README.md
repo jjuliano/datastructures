@@ -9,3 +9,7 @@ Upstream Python commit `574d100b7181956e9c8384552fd078165e4cc326`.
 Easy procedures in `easy/` are original, MIT, copyright Joel Bryan Juliano. See [LICENSE-EASY.md](../LICENSE-EASY.md). Run with [jjuliano/easy-lang](https://github.com/jjuliano/easy-lang).
 
 - `easy/walks.easy` — preorder prints 1 2 4 5 3, and the height is 3
+
+Python twins in `easy/` are original, MIT, copyright Joel Bryan Juliano, under the same [LICENSE-EASY.md](../LICENSE-EASY.md). No public Python file matched the Easy program, so each twin follows it line by line, with comments that quote the Easy lines.
+
+- `easy/walks.py` — Python twin of `easy/walks.easy`: Pre and Height, prints 1 2 4 5 3 and 3

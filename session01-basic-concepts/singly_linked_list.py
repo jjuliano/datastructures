@@ -5,6 +5,8 @@ from dataclasses import dataclass
 from typing import Any
 
 
+# Easy: nodes.easy declares node(info, link).
+# data is info, and next_node is link.
 @dataclass
 class Node:
     """
@@ -47,6 +49,7 @@ class LinkedList:
         """
         self.head: Node | None = None
 
+    # Easy: nodes.easy, the walk at the end of MAIN.
     def __iter__(self) -> Iterator[Any]:
         """
         This function is intended for iterators to access
@@ -61,9 +64,13 @@ class LinkedList:
         'tail_1'
         'tail_2'
         """
+        # Easy MAIN: p <- a
         node = self.head
+        # Easy MAIN: while p != nil do
         while node:
+            # Easy MAIN: output info(p)
             yield node.data
+            # Easy MAIN: p <- link(p)
             node = node.next_node
 
     def __len__(self) -> int:
@@ -191,6 +198,8 @@ class LinkedList:
         """
         self.insert_nth(0, data)
 
+    # Easy: nodes.easy, the GETNODE and link lines at the top of MAIN.
+    # insert_tail calls this with index = len(self).
     def insert_nth(self, index: int, data: Any) -> None:
         """
         Insert data at given index.
@@ -209,8 +218,10 @@ class LinkedList:
         """
         if not 0 <= index <= len(self):
             raise IndexError("list index out of range")
+        # Easy MAIN: call GETNODE(c); info(c) <- "elm"; link(c) <- nil
         new_node = Node(data)
         if self.head is None:
+            # Easy MAIN: the first node, a, becomes the head
             self.head = new_node
         elif index == 0:
             new_node.next_node = self.head  # link new_node to head
@@ -221,7 +232,9 @@ class LinkedList:
             for _ in range(index - 1):
                 temp = temp.next_node
                 assert temp is not None
+            # Easy MAIN: at the tail, temp.next_node is None: link(c) <- nil
             new_node.next_node = temp.next_node
+            # Easy MAIN: link(b) <- c
             temp.next_node = new_node
 
     def print_list(self) -> None:  # print every node data

@@ -15,6 +15,8 @@ def evaluate_poly(poly: Sequence[float], x: float) -> float:
     return sum(c * (x**i) for i, c in enumerate(poly))
 
 
+# Easy: horner.easy, procedure Horner(x). poly runs low to high, so
+# reversed(poly) feeds 3, then 2, then 1 for 3x^2 + 2x + 1.
 def horner(poly: Sequence[float], x: float) -> float:
     """Evaluate a polynomial at specified point using Horner's method.
 
@@ -33,9 +35,13 @@ def horner(poly: Sequence[float], x: float) -> float:
     >>> horner((0.0, 0.0, 5.0, 9.3, 7.0), 10.0)
     79800.0
     """
+    # Easy Horner: acc <- 0
     result = 0.0
+    # Easy Horner: one line per coefficient, high to low
     for coeff in reversed(poly):
+        # Easy Horner: acc <- acc * x + 3, then + 2, then + 1
         result = result * x + coeff
+    # Easy Horner: return(acc)
     return result
 
 

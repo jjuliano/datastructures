@@ -18,6 +18,10 @@ Easy files
   They are not part of the The Algorithms commits above.
   Interpreter: https://github.com/jjuliano/easy-lang
 
-The Python and C files are unmodified copies, except the session folders and these notes.
-The Python programs written for the book are not in this repository.
+The C files are unmodified copies, except the session folders and these notes.
+The Python files have added comments that map them to the Easy procedures.
+Three long lines were wrapped and two trailing comments moved to their own
+line, for the book's print width. The syntax tree of every file is unchanged.
+Python twins of six Easy procedures sit in easy/ folders under the Easy license.
+The other Python programs written for the book are not in this repository.
 The Easy procedures under each session's easy/ folder are original and are listed above.

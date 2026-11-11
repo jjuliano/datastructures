@@ -53,6 +53,7 @@ class HashTable:
             self.size_table * self.charge_factor
         )
 
+    # Easy: hash.easy, procedure Slot(key, m). size_table is m.
     def hash_function(self, key) -> int:
         """
         Generates hash for the given key value
@@ -78,6 +79,7 @@ class HashTable:
         >>> ht.hash_function(-0)
         0
         """
+        # Easy Slot: return(key mod m)
         return key % self.size_table
 
     def _step_by_step(self, step_ord) -> None:
@@ -244,6 +246,7 @@ class HashTable:
         for value in survivor_values:
             self.insert_data(value)
 
+    # Easy: hash.easy, procedure Put(head, key). data is the key.
     def insert_data(self, data) -> None:
         """
         insert_data is used for inserting a single element at a time in the HashTable.
@@ -260,8 +263,10 @@ class HashTable:
         >>> ht.keys()
         {0: 30, 1: 50}
         """
+        # Easy Put: b <- key mod 7. Here key names the slot b.
         key = self.hash_function(data)
 
+        # Easy Put: an empty head(b) takes the key at once
         if self.values[key] is None:
             self._set_value(key, data)
 
@@ -269,6 +274,8 @@ class HashTable:
             pass
 
         else:
+            # The chained table keeps b unless every chain is full. Then
+            # _set_value pushes onto the chain at b.
             collision_resolution = self._collision_resolution(key, data)
             if collision_resolution is not None:
                 self._set_value(collision_resolution, data)

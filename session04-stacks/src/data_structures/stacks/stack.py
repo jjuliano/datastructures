@@ -22,8 +22,12 @@ class Stack[T]:
     https://en.wikipedia.org/wiki/Stack_(abstract_data_type)
     """
 
+    # Easy: pile.easy, structure Pile(n) = [slot(1:n), top] and Init.
+    # self.stack is slot(1:n), self.limit is n, len(self.stack) is top.
     def __init__(self, limit: int = 10) -> None:
+        # Easy Init: top <- 0
         self.stack: list[T] = []
+        # Easy: Pile pile(4) sets n, the capacity
         self.limit = limit
 
     def __bool__(self) -> bool:
@@ -32,6 +36,7 @@ class Stack[T]:
     def __str__(self) -> str:
         return str(self.stack)
 
+    # Easy: pile.easy, procedure Push(p, x).
     def push(self, data: T) -> None:
         """
         Push an element to the top of the stack.
@@ -50,10 +55,13 @@ class Stack[T]:
         data_structures.stacks.stack.StackOverflowError
 
         """
+        # Easy Push: if top = n then [ output "full"; stop ]
         if len(self.stack) >= self.limit:
             raise StackOverflowError
+        # Easy Push: top <- top + 1; slot(top) <- x
         self.stack.append(data)
 
+    # Easy: pile.easy, procedure Pop(p, x).
     def pop(self) -> T:
         """
         Pop an element off of the top of the stack.
@@ -69,8 +77,10 @@ class Stack[T]:
             ...
         data_structures.stacks.stack.StackUnderflowError
         """
+        # Easy Pop: if top = 0 then [ output "empty"; stop ]
         if not self.stack:
             raise StackUnderflowError
+        # Easy Pop: x <- slot(top); top <- top - 1
         return self.stack.pop()
 
     def peek(self) -> T:

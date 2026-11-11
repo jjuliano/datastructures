@@ -8,6 +8,7 @@ from typing import TypeVar
 T = TypeVar("T")
 
 
+# Easy: linked_pile.easy, node(info, link). data is info, next is link.
 class Node[T]:
     def __init__(self, data: T) -> None:
         self.data = data
@@ -47,6 +48,7 @@ class LinkedStack[T]:
     IndexError: pop from empty stack
     """
 
+    # Easy MAIN: top <- nil
     def __init__(self) -> None:
         self.top: Node[T] | None = None
 
@@ -91,6 +93,7 @@ class LinkedStack[T]:
         """
         return self.top is None
 
+    # Easy: linked_pile.easy, procedure Push(top, x).
     def push(self, item: T) -> None:
         """
         >>> stack = LinkedStack()
@@ -100,11 +103,16 @@ class LinkedStack[T]:
         >>> str(stack)
         'C->Java->Python'
         """
+        # Easy Push: call GETNODE(p); info(p) <- x
         node = Node(item)
+        # Easy Push: link(p) <- top. On an empty stack next stays None,
+        # which is the nil that top already holds.
         if not self.is_empty():
             node.next = self.top
+        # Easy Push: top <- p
         self.top = node
 
+    # Easy: linked_pile.easy, procedure Pop(top, x).
     def pop(self) -> T:
         """
         >>> stack = LinkedStack()
@@ -122,11 +130,15 @@ class LinkedStack[T]:
         >>> stack.pop() == 'c'
         True
         """
+        # Not in Easy: Pop trusts its caller not to pop an empty chain.
         if self.is_empty():
             raise IndexError("pop from empty stack")
         assert isinstance(self.top, Node)
+        # Easy Pop: old <- top
         pop_node = self.top
+        # Easy Pop: top <- link(top)
         self.top = self.top.next
+        # Easy Pop: x <- info(old). The garbage collector does RETNODE(old).
         return pop_node.data
 
     def peek(self) -> T:

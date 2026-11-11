@@ -9,7 +9,13 @@ class Comparable(Protocol):
     def __lt__(self, other: object, /) -> bool: ...
 
 
-def heapify[T: Comparable](unsorted: list[T], index: int, heap_size: int) -> None:
+# Easy: heap.easy, procedure Sift(a, start, last). Python counts from
+# 0, so the children of i are 2i + 1 and 2i + 2, and heap_size is
+# last + 1. Easy loops down the tree. This version calls itself one
+# level down instead.
+def heapify[T: Comparable](
+    unsorted: list[T], index: int, heap_size: int
+) -> None:
     """
     :param unsorted: unsorted list containing comparable items
     :param index: index
@@ -23,21 +29,30 @@ def heapify[T: Comparable](unsorted: list[T], index: int, heap_size: int) -> Non
     >>> unsorted
     [5, 4, 3, 1, 2]
     """
+    # Easy Sift: root <- start; child <- 2 * root
     largest = index
     left_index = 2 * index + 1
     right_index = 2 * index + 2
 
+    # Easy Sift: while 2 * root <= last do. Python keeps the larger of
+    # root and its left child in largest.
     if left_index < heap_size and unsorted[largest] < unsorted[left_index]:
         largest = left_index
 
+    # Easy Sift: if child < last and a(child) < a(child + 1)
+    # then child <- child + 1
     if right_index < heap_size and unsorted[largest] < unsorted[right_index]:
         largest = right_index
 
+    # Easy Sift: if a(root) < a(child) then [ ... ] else exit
     if largest != index:
+        # Easy Sift: hold <- a(root); a(root) <- a(child); a(child) <- hold
         unsorted[largest], unsorted[index] = (unsorted[index], unsorted[largest])
+        # Easy Sift: root <- child, and the while loop goes around again
         heapify(unsorted, largest, heap_size)
 
 
+# Easy: heap.easy, procedures Heapify(a, n) and HeapSort(a, n).
 def heap_sort[T: Comparable](unsorted: list[T]) -> list[T]:
     """
     A pure Python implementation of the heap sort algorithm.
@@ -64,10 +79,15 @@ def heap_sort[T: Comparable](unsorted: list[T]) -> list[T]:
     TypeError: ...
     """
     n = len(unsorted)
+    # Easy Heapify: for start <- floor(n / 2) to 1 by -1 do
     for i in range(n // 2 - 1, -1, -1):
+        # Easy Heapify: call Sift(a, start, n)
         heapify(unsorted, i, n)
+    # Easy HeapSort: for hi <- n to 2 by -1 do
     for i in range(n - 1, 0, -1):
+        # Easy HeapSort: hold <- a(1); a(1) <- a(hi); a(hi) <- hold
         unsorted[0], unsorted[i] = unsorted[i], unsorted[0]
+        # Easy HeapSort: call Sift(a, 1, hi - 1)
         heapify(unsorted, 0, i)
     return unsorted
 

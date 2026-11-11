@@ -11,3 +11,7 @@ Easy procedures in `easy/` are original, MIT, copyright Joel Bryan Juliano. See 
 - `easy/insertion.easy` — sorts 3, 1, 2, 2 and prints 1 2 2 3
 - `easy/search.easy` — binary search on 2, 4, 7, 9, 11 returns 3, then 0
 - `easy/hanoi.easy` — three disks, seven peg lines
+
+Python twins in `easy/` are original, MIT, copyright Joel Bryan Juliano, under the same [LICENSE-EASY.md](../LICENSE-EASY.md). No public Python file matched the Easy program, so each twin follows it line by line, with comments that quote the Easy lines.
+
+- `easy/hanoi.py` — Python twin of `easy/hanoi.easy`: the same seven peg lines

@@ -35,6 +35,7 @@ def factorial(number: int) -> int:
     return value
 
 
+# Easy: factorial.easy, procedure Fact(n).
 def factorial_recursive(number: int) -> int:
     """
     Calculate the factorial of a number using recursion.
@@ -57,10 +58,14 @@ def factorial_recursive(number: int) -> int:
         ...
     ValueError: factorial_recursive() not defined for negative values
     """
+    # Not in Easy: Fact trusts its caller to pass a whole n >= 0.
     if not isinstance(number, int):
         raise ValueError("factorial_recursive() only accepts integral values")
     if number < 0:
         raise ValueError("factorial_recursive() not defined for negative values")
+    # Easy Fact: if n = 0 then return(1)
+    # Easy Fact: else return(n * Fact(n - 1))
+    # Python also stops at 1, which saves the last call.
     return 1 if number in {0, 1} else number * factorial_recursive(number - 1)
 
 

@@ -189,6 +189,8 @@ def insort_right(
     sorted_collection.insert(bisect_right(sorted_collection, item, lo, hi), item)
 
 
+# Easy: search.easy, procedure Find in session 3 and Binary in
+# session 13. Python counts from 0 and returns -1 where Easy returns 0.
 def binary_search(sorted_collection: list[int], item: int) -> int:
     """Pure implementation of a binary search algorithm in Python
 
@@ -215,24 +217,35 @@ def binary_search(sorted_collection: list[int], item: int) -> int:
     >>> binary_search([0, 5, 7, 10, 10, 10], 10)
     3
     """
+    # Not in Easy: the procedure trusts the row to be sorted.
     if any(a > b for a, b in pairwise(sorted_collection)):
         raise ValueError("sorted_collection must be sorted in ascending order")
+    # Easy Binary: lo <- 1; hi <- n
     left = 0
     right = len(sorted_collection) - 1
+    # Easy Binary: the return(0) at the end, held until the loop is done
     result = -1
 
+    # Easy Binary: while lo <= hi do
     while left <= right:
+        # Easy Binary: mid <- floor((lo + hi) / 2)
         midpoint = left + (right - left) // 2
         current_item = sorted_collection[midpoint]
+        # Easy Binary: case key = a(mid): return(mid). Python records the
+        # hit and keeps looking left for an earlier copy of the same key.
         if current_item == item:
+            # Found the item, but continue to find leftmost occurrence
             result = (
-                midpoint  # Found the item, but continue to find leftmost occurrence
+                midpoint
             )
             right = midpoint - 1  # Look for more occurrences on the left
+        # Easy Binary: case else: hi <- mid - 1
         elif item < current_item:
             right = midpoint - 1
+        # Easy Binary: case key > a(mid): lo <- mid + 1
         else:
             left = midpoint + 1
+    # Easy Binary: return(0), or the index of the hit
     return result
 
 

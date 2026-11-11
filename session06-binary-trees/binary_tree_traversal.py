@@ -43,6 +43,9 @@ def build_tree() -> TreeNode:
     raise ValueError("Something went wrong")
 
 
+# Easy: walks.easy (session 6), procedure Pre(p, order, k). Python
+# prints each value where Easy writes it into order(k). Height has
+# no twin here. easy/walks.py has both procedures.
 def pre_order(node: TreeNode) -> None:
     """
     >>> root = TreeNode(1)
@@ -58,10 +61,14 @@ def pre_order(node: TreeNode) -> None:
     >>> pre_order(root)
     1,2,4,5,3,6,7,
     """
+    # Easy Pre: if p = nil then return
     if not isinstance(node, TreeNode) or not node:
         return
+    # Easy Pre: k <- k + 1; order(k) <- info(p)
     print(node.data, end=",")
+    # Easy Pre: call Pre(left(p), order, k)
     pre_order(node.left)
+    # Easy Pre: call Pre(right(p), order, k)
     pre_order(node.right)
 
 
