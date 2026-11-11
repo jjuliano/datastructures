@@ -10,5 +10,14 @@ C files
   License: GPL-3.0 (LICENSE-GPL-3.0)
   Copyright (C) 2016-2023 TheAlgorithms and contributors
 
-Files are unmodified copies, except the session folders and these notes.
-The programs written for the book are not in this repository.
+Easy files
+  Directory: easy/ inside each session
+  License: MIT (LICENSE-EASY.md)
+  Copyright (c) 2026 Joel Bryan Juliano
+  These procedures were written for the notes. They are original.
+  They are not part of the The Algorithms commits above.
+  Interpreter: https://github.com/jjuliano/easy-lang
+
+The Python and C files are unmodified copies, except the session folders and these notes.
+The Python programs written for the book are not in this repository.
+The Easy procedures under each session's easy/ folder are original and are listed above.

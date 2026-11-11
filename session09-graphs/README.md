@@ -11,3 +11,7 @@ Python, MIT, from The Algorithms:
 - `check_cycle.py` — upstream `graphs/check_cycle.py`
 
 Upstream Python commit `574d100b7181956e9c8384552fd078165e4cc326`.
+
+Easy procedures in `easy/` are original, MIT, copyright Joel Bryan Juliano. See [LICENSE-EASY.md](../LICENSE-EASY.md). Run with [jjuliano/easy-lang](https://github.com/jjuliano/easy-lang).
+
+- `easy/walks.easy` — depth-first prints P Q T S R, then breadth-first prints P Q R S T

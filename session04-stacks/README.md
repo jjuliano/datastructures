@@ -14,3 +14,9 @@ PYTHONPATH=src python -m data_structures.stacks.balanced_parentheses
 C, GPL-3.0, from The Algorithms C repository. See `c/` and the root `LICENSE-GPL-3.0`.
 
 Upstream Python commit `574d100b7181956e9c8384552fd078165e4cc326`.
+
+Easy procedures in `easy/` are original, MIT, copyright Joel Bryan Juliano. See [LICENSE-EASY.md](../LICENSE-EASY.md). Run with [jjuliano/easy-lang](https://github.com/jjuliano/easy-lang).
+
+- `easy/pile.easy` — an array stack pops 4, 1, 3
+- `easy/linked_pile.easy` — a linked stack pops 4, 1, 3
+- `easy/brackets.easy` — `([])` is true, and `([)]` is false

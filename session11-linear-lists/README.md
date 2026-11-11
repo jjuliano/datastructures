@@ -9,3 +9,7 @@ Python, MIT, from The Algorithms:
 - `single_indeterminate_operations.py` — upstream `maths/polynomials/single_indeterminate_operations.py`
 
 Upstream Python commit `574d100b7181956e9c8384552fd078165e4cc326`.
+
+Easy procedures in `easy/` are original, MIT, copyright Joel Bryan Juliano. See [LICENSE-EASY.md](../LICENSE-EASY.md). Run with [jjuliano/easy-lang](https://github.com/jjuliano/easy-lang).
+
+- `easy/digits.easy` — 99 + 1 prints 0 0 1

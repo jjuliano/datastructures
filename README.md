@@ -6,7 +6,13 @@ Python files are MIT, from [The Algorithms](https://github.com/TheAlgorithms/Pyt
 
 C files are GPL-3.0, from [The Algorithms C](https://github.com/TheAlgorithms/C), commit `e5dad3fa8def3726ec850ca66a7f51521f8ad393`. They sit in `session04-stacks/c` and `session05-queues-and-deques/c`. The license is [LICENSE-GPL-3.0](LICENSE-GPL-3.0).
 
-The functions written for the book are printed in the book. Copy those from the page. They are not in this repository.
+The Python functions written for the book are printed in the book. Copy those from the page. They are not in this repository.
+
+Each session has an `easy/` folder. Those procedures are original, MIT, copyright Joel Bryan Juliano. The license is [LICENSE-EASY.md](LICENSE-EASY.md). They are separate from the Python and C files above. Run one with the interpreter at [jjuliano/easy-lang](https://github.com/jjuliano/easy-lang):
+
+```
+python3 -m easy session03-algorithms/easy/insertion.easy
+```
 
 | Session | Directory |
 | --- | --- |
